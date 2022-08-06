@@ -42,14 +42,35 @@ public class TextUI {
             System.out.println("[x] Exit Airport Asset Control");
 
             System.out.print("> ");
-            String answer = scanner.nextLine();
+            String command = scanner.nextLine();
 
+            if (command.equals("1")){
+                //TUTAJ BEDZIE WYWOLANA METODA NAPISANA NIZEJ
+                addAirplane();
+            }
+
+            if (command.equals("2")){
+            }
+            //METODA NAPISANA PONIZEJ
+
+            if (command.equals("x")){
+                break;
+            }
 
 
         }
     }
 
     public void startFlightControl(){}
+
+    private void addAirplane (){
+        System.out.print("Give the airplane id: ");
+        String id = scanner.nextLine();
+        System.out.print("Give the airplane capacity: ");
+        int capacity = Integer.parseInt(scanner.nextLine());
+
+        flightControl.addAirplane(id,capacity);
+    }
 
 
 
