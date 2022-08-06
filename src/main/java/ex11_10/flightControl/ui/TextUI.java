@@ -12,9 +12,9 @@ public class TextUI {
     FlightControl flightControl;
     Scanner scanner;
 
-    public TextUI() {
-        this.flightControl = new FlightControl();
-        this.scanner = new Scanner(System.in);
+    public TextUI(FlightControl flightControl, Scanner scanner) {
+        this.flightControl = flightControl;
+        this.scanner = scanner;
     }
 
     //METODA DO WYWOLANIA W MAIN UZYTKOWNIKA, BEDZIE POSIADALA
@@ -22,5 +22,46 @@ public class TextUI {
     //UZUPELNIANIA DANYMI OD UZYTKOWNIKA, DRUGA BEDZIE
     //SLUZYLA DO SPRAWDZANIA TYCH DANYCH
 
-    public void start () {}
+    public void start () {
+    //  TE METODY SA STWORZONE POD METODA START
+        startAssetControl();
+        System.out.println();
+        startFlightControl();
+
+    }
+
+    //METODA ODPOWIEDZIALNA ZA POBRANIE I UZUPELNIENIE LIST
+
+    public void startAssetControl(){
+
+        while (true){
+
+            System.out.println("Choose an action:");
+            System.out.println("[1] Add an airplane");
+            System.out.println("[2] Add a flight");
+            System.out.println("[x] Exit Airport Asset Control");
+
+            System.out.print("> ");
+            String answer = scanner.nextLine();
+
+
+
+        }
+    }
+
+    public void startFlightControl(){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
