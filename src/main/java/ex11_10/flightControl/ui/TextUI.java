@@ -1,5 +1,6 @@
 package ex11_10.flightControl.ui;
 
+import ex11_10.flightControl.domain.Airplane;
 import ex11_10.flightControl.logic.FlightControl;
 
 import java.util.Scanner;
@@ -70,6 +71,32 @@ public class TextUI {
         int capacity = Integer.parseInt(scanner.nextLine());
 
         flightControl.addAirplane(id,capacity);
+    }
+
+    private void addFlight(){
+        System.out.print("Give the airplane id: ");
+        Airplane airplane = askForAirplane(scanner);
+        System.out.print("Give the departure airport id: ");
+        String departureID = scanner.nextLine();
+        System.out.print("Give the target airport id: ");
+        String destinationID = scanner.nextLine();
+
+        flightControl.addFlight(airplane,departureID,destinationID);
+
+    }
+
+    private Airplane askForAirplane(Scanner scanner) {
+        Airplane airplane = null;
+        while (airplane == null) {
+            String id = scanner.nextLine();
+            airplane = flightControl.getAirplane(id);
+
+            if (airplane == null) {
+                System.out.println("No airplane with the id " + id + ".");
+            }
+        }
+
+        return airplane;
     }
 
 
