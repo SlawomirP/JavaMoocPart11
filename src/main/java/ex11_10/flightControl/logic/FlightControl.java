@@ -4,6 +4,7 @@ import ex11_10.flightControl.domain.Airplane;
 import ex11_10.flightControl.domain.Airport;
 import ex11_10.flightControl.domain.Flight;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 //KLASA KTORA BĘDZIE ZARZĄDZALA SAMOLOTAMI, LOTNISKAMI, LOTAMI TZN
@@ -41,5 +42,18 @@ public class FlightControl {
         Flight flight = new Flight(airplane, this.airportsDeparture.get(departureId), this.airportsArrival.get(arrivalId));
         //DODANIE DO MAPY KLUCZA I WARTOŚCI
         this.flights.put(flight.toString(), flight);
+    }
+
+    //METODA KTORA ZWROCI LISTE SAMOLOTOW
+    public Collection<Airplane> getAirplanes(){
+        return this.airplanes.values();
+    }
+    //METODA KTORA ZWROCI LISTE Z LOTAMI
+    public Collection<Flight> getFlights(){
+        return this.flights.values();
+    }
+    //METODA KTORA ZWROCI SZUKANY SAMOLOT (PODANY W PARAMETRZE)
+    public Airplane getAirplane(String id){
+        return this.airplanes.get(id);
     }
 }
