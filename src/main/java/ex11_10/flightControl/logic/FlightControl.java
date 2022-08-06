@@ -11,12 +11,14 @@ import java.util.HashMap;
 public class FlightControl {
 
     private HashMap<String,Airplane> airplanes;
-    private HashMap<String,Airport> airports;
+    private HashMap<String,Airport> airportsDeparture;
+    private HashMap<String,Airport> airportsArrival;
     private HashMap<String,Flight> flights;
 
     public FlightControl() {
         this.airplanes = new HashMap<>();
-        this.airports = new HashMap<>();
+        this.airportsDeparture = new HashMap<>();
+        this.airportsArrival = new HashMap<>();
         this.flights = new HashMap<>();
     }
 
@@ -31,11 +33,11 @@ public class FlightControl {
     //W PARAMETRZE PODAM SAMOLOT O LOTNISKO ODLOTU I PRZYBYCIA
     public void addFlight(Airplane airplane, String departureId, String arrivalId){
         //DODANIE DO MAPY Z LOTNISKAMI MIEJSC ODLOTU I PRZYLOTU
-        this.airports.put(departureId, new Airport(departureId));
-        this.airports.put(arrivalId, new Airport(arrivalId));
+        this.airportsDeparture.put(departureId, new Airport(departureId));
+        this.airportsArrival.put(arrivalId, new Airport(arrivalId));
         //UTWORZENIE OBIEKTU LOT I DODANIE DO MAPY LOTÓW, ZA KLUCZ POSLUZY
         //NAZWA LOTU
-        Flight flight = new Flight(airplane, this.airports.get(departureId), this.airports.get(arrivalId));
+        Flight flight = new Flight(airplane, this.airportsDeparture.get(departureId), this.airportsArrival.get(arrivalId));
         //DODANIE DO MAPY KLUCZA I WARTOŚCI
         this.flights.put(flight.toString(), flight);
     }
