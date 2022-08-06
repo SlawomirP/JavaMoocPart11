@@ -28,5 +28,7 @@ public class Flight {
         return arrivalAirport;
     }
 
-
+    public String toString (){
+        return this.airplane.toString() + " (" + this.departureAirport + "-" + this.arrivalAirport + ")";
+    }
 }
