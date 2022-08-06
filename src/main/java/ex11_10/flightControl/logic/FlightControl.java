@@ -31,6 +31,7 @@ public class FlightControl {
 
     //mETODA DODAJĄCA LOT DO LISTY LOTÓW
     //W PARAMETRZE PODAM SAMOLOT O LOTNISKO ODLOTU I PRZYBYCIA
+    //KAZDA INFORMACJA MA SWOJA HASHMAPE
     public void addFlight(Airplane airplane, String departureId, String arrivalId){
         //DODANIE DO MAPY Z LOTNISKAMI MIEJSC ODLOTU I PRZYLOTU
         this.airportsDeparture.put(departureId, new Airport(departureId));
