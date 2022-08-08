@@ -40,6 +40,27 @@ public class SaveableDictionary {
             }
         return null;
     }
+    //METODA KTORA USUNIE SLOWO I TLUMACZENIE I NA ODWROT
+    public void delete(String word){
+        //przypadek gdy slowo to klucz
+        if(this.dictionary.containsKey(word)){
+            this.dictionary.remove(word);
+            System.out.println("poszedl del");;
+        }
+        //przypadek gdy slowo to wartosc
+        if (this.dictionary.containsValue(word)){
+            String temp = "";
+            //przelatuje liste
+            for(String key: this.dictionary.keySet()){
+                //jezeli slowo jest rowne wartosci z pod klucza
+                if(word.equals(this.dictionary.get(key))){
+                    temp = key;
+                }
+            }
+            //to usun klucz
+            this.dictionary.remove(temp);
+        }
+    }
 }
 
 
