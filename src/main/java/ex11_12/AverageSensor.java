@@ -2,6 +2,7 @@ package ex11_12;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //TEN SENSOR ZAWIERA W SOBIE POPRZEDNIE CZUJNIKI
 //MUSI SIE TUTAJ ZNAJDOWAC METODA DODAJACA CZUJNIKI
@@ -12,7 +13,7 @@ import java.util.List;
 //WYLACZA WSZYSTKIE EW JEDEN
 public class AverageSensor implements Sensor {
     //STWORZE ARRAYLISTE NA OBIEKTY SENSOR
-    List<Sensor> sensors;
+    ArrayList<Sensor> sensors;
 
     public AverageSensor() {
         this.sensors = new ArrayList<>();
@@ -64,4 +65,8 @@ public class AverageSensor implements Sensor {
         return (int) this.sensors.stream().mapToInt(sensor -> sensor.read()).average().getAsDouble();
     }
 
+    //METODA KTORA ZWROCI CALA LISTE ZAPISANYCH OBIEKTÓW
+    public List<Integer> readings (){
+        return this.sensors.stream().map(sensor -> sensor.read()).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

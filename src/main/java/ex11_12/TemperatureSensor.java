@@ -11,9 +11,11 @@ import java.util.Random;
 public class TemperatureSensor implements Sensor{
 
     private boolean sensorCondition;
+    private int parameter;
 
     public TemperatureSensor() {
         this.sensorCondition = false;
+        this.parameter = randomTemperature();
     }
 
     @Override
@@ -36,7 +38,7 @@ public class TemperatureSensor implements Sensor{
         if(!this.sensorCondition){
             throw new IllegalStateException("Sensor if off.");
         } else {
-            return randomTemperature();
+            return this.parameter;
         }
     }
     //METODA WYLOSUJE RANDOMOWA WARTOSC TEMP Z ZAKRESU
