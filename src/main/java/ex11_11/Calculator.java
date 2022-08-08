@@ -15,7 +15,7 @@ public class Calculator {
     }
 
     public int binomialCoefficent(int setSize, int subsetSize) {
-
+        //JEZELI JAKIS WARUNEK ZOSTANIE SPELNIONY TO WYWALI EXCEPTION
         if (setSize < 0 || subsetSize < 0 || subsetSize > setSize) {
             throw new IllegalArgumentException();
         }
