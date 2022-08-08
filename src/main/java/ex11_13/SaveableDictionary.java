@@ -10,32 +10,36 @@ public class SaveableDictionary {
     //TWORZE HASHMAPE DO PRZECHOWYWANIA ALOW I ICH TLUMACZEN
     private HashMap<String, String> dictionary;
 
-    public SaveableDictionary () {
+    public SaveableDictionary() {
         this.dictionary = new HashMap<>();
     }
 
     //METODA DODAJACA DO SLOWNIKA SLOWO I JEGO TLUMACZENIE
     //NIE MOZE BYC MOZLIWOSCI DODANIA DRUGI RAZ TEGO SAMEGO SLOWA
-    public void add (String word, String translation){
-        if (!this.dictionary.containsKey(word)){
-            this.dictionary.put(word,translation);
-        }
+    public void add(String word, String translation) {
+        //doda tylko jak nie bedzie nic pod tym kluczem - putIfAbsent
+            this.dictionary.putIfAbsent(word, translation);
+
     }
     //METODA ZWROCI TLUMACZENIE WPISANEGO SLOWA, JEZELI SLOWA
     //NIE MA W SLOWNIKU TO ZWROCI NULL
-    public String translate (String word){
-        if (!this.dictionary.containsKey(word) || !this.dictionary.containsValue(word)){
-            return null;
-        }
-        if(this.dictionary.containsValue(word)){
+    public String translate(String word) {
             //METODA NA WYCIAGNIĘCIE KLUCZA MAJAC WARTOSC Z POD TEGO KLUCZA
-            for(Map.Entry<String, String> entry: dictionary.entrySet()){
-                if(entry.getValue().equals(word)){
-                    return entry.getKey();
+            if (this.dictionary.containsValue(word)) {
+                //przelatujac przez liste
+                for (String key : this.dictionary.keySet()) {
+                    //jezeli slowo bedzie rowne temu co pod kluczem
+                    if (word.equals(dictionary.get(key))) {
+                        //zwroc klucz
+                        return key;
+                    }
                 }
             }
-        }
-        return this.dictionary.get(word);
+            if (this.dictionary.containsKey(word)){
+                return this.dictionary.get(word);
+            }
+        return null;
     }
-
 }
+
+
