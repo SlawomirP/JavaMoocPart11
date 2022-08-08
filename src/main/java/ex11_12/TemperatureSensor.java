@@ -33,12 +33,13 @@ public class TemperatureSensor implements Sensor{
 
     @Override
     public int read() {
-        if(this.sensorCondition){
+        if(!this.sensorCondition){
             throw new IllegalStateException("Sensor if off.");
+        } else {
+            return randomTemperature();
         }
-        return randomTemperature();
     }
-
+    //METODA WYLOSUJE RANDOMOWA WARTOSC TEMP Z ZAKRESU
     private int randomTemperature (){
         int r = new Random().nextInt(61);
         return r - 31;
