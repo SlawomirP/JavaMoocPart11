@@ -22,18 +22,21 @@ public class AverageSensor implements Sensor {
         this.sensors.add(sensor);
     }
 
-
+    //METODA PRZELATUJE PRZEZ LISTE Z OBIEKTAMI I SPRAWDZA ICH STATUS
+    //JEZELI CHOCIAZ JEDEN BEDZIE INNY NIZ TRUE TO ODRAZU ZWROCI
+    //FALSA A W PRZECIWNYM WYPADKU POPROSTU ZWROCI TRUE
     @Override
     public boolean isOn() {
         for (int i = 0; i < this.sensors.size(); i++) {
-            if(!this.sensors.get(i).isOn()){
+            if (!this.sensors.get(i).isOn()) {
                 return false;
             }
         }
         return true;
     }
 
-
+    //METODA PRZELATUJE PRZEZ LISTE OBIEKTOW I NA KAZDYM
+    //WYWOLUJE METODE SET ON
     @Override
     public void setOn() {
         for (Sensor sensor : this.sensors) {
@@ -47,16 +50,18 @@ public class AverageSensor implements Sensor {
             sensor.setOff();
         }
     }
-//TERAZ METODA READ MUSI ZWROCIC MI SREDNIA ZE WSZYSTKICH TEMP
+
+    //TERAZ METODA READ MUSI ZWROCIC MI SREDNIA ZE WSZYSTKICH TEMP
     //ZROBIE TO ZA POMOCA STREAMA
     @Override
     public int read() {
-        if(!isOn()){
+        //NA POCZATKU DAJE SRAWDZENIE WYNIKU METODY ISON,
+        //JEZELI FALSE TO ODRAZU WYRZUCI EXCEPTION W PRZECIWNYM
+        //WYPADKU POPROSTU POLICZY SREDNIA LISTY
+        if (!isOn()) {
             throw new IllegalStateException("At least one of the sensors is off. ");
         }
-        return (int) this.sensors.stream()
-                .mapToInt(sensor -> sensor.read())
-                .average()
-                .getAsDouble();
+        return (int) this.sensors.stream().mapToInt(sensor -> sensor.read()).average().getAsDouble();
     }
+
 }
