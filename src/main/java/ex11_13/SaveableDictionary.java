@@ -45,7 +45,6 @@ public class SaveableDictionary {
         //przypadek gdy slowo to klucz
         if(this.dictionary.containsKey(word)){
             this.dictionary.remove(word);
-            System.out.println("poszedl del");;
         }
         //przypadek gdy slowo to wartosc
         if (this.dictionary.containsValue(word)){
