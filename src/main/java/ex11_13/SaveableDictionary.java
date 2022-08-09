@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 //STWORZENIE SLOWNICZKA MAJACEGO MOZLIWOSC ZAPISYWANIA I ODCZYTU PLIKU
@@ -107,13 +106,14 @@ public class SaveableDictionary {
     //ZAPISYWANIE DO PLIKU slownika,NAZWA PLIKU DO ZAPISANIE
     //MA BYC W PARAMETRZE METODY, JEZELI NIE BEDZIE MOZNA ZAPISAC
     //METODA MA ZWRÓCIC FALSE W PRZECIWNYM WYPADKU DA TRUE
-    public boolean save(){
+    public boolean save() {
         boolean status = true;
         try {
-           PrintWriter writer = new PrintWriter(this.file);
-            for(String key : this.dictionary.keySet()){
+            PrintWriter writer = new PrintWriter(this.file);
+            for (String key : this.dictionary.keySet()) {
                 writer.println(key + ":" + this.dictionary.get(key));
             }
+            writer.close(); // to musi koniecznie byc !!!!!!!!
         } catch (FileNotFoundException e) {
             status = false;
             throw new RuntimeException(e);
