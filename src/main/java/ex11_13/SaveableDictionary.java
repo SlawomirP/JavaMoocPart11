@@ -1,7 +1,10 @@
 package ex11_13;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 //STWORZENIE SLOWNICZKA MAJACEGO MOZLIWOSC ZAPISYWANIA I ODCZYTU PLIKU
 //SLOWNICZEK MUSI TLUMACZYC Z FINSKIEGO NA INNY JEZYI NA ODWROT
@@ -9,8 +12,16 @@ public class SaveableDictionary {
 
     //TWORZE HASHMAPE DO PRZECHOWYWANIA ALOW I ICH TLUMACZEN
     private HashMap<String, String> dictionary;
+    private String file;
 
     public SaveableDictionary() {
+        this.dictionary = new HashMap<>();
+    }
+
+    //DRUGI KONSTRUKTOR DLA KLASY KTORY BEDZIE MIAL W PARAMETRZE
+    //PLIK KTORY BEZIE SLUZYL DO ODCZYTU
+    public SaveableDictionary(String file){
+        this.file = file;
         this.dictionary = new HashMap<>();
     }
 
@@ -59,6 +70,34 @@ public class SaveableDictionary {
             //to usun klucz
             this.dictionary.remove(temp);
         }
+    }
+
+    //METODA KTORA WCZYTA SLOWNIK Z PODANEGO W KONSTRUKTORZE PLIKU
+    //JEZELI NIE BEDZIE MOGLA WCZYTAC TO ZWROCI FALSE W PRZECIWNYM
+    //WYPADKU DA TRUE
+    public boolean load(){
+        //stworzenie pomocniczego booleana
+        boolean status = true;
+        try {
+            //STWORZENIE OBIEKTU SCANERA DO WCZYTANIE PLIKU
+            Scanner reader = new Scanner(Paths.get(this.file));
+            //podczas gdy reader bedzie mial nastepna linie
+            while(reader.hasNext()){
+                //pomocniczy string rowna sie nastepnej lini
+                String row = reader.nextLine();
+                //tablica stringow = rozbity string row
+                String [] temp = row.split(":");
+                //do hashmapy dictionary dodaj el tablicy
+                //o ile wczesniej tam nie bedzie
+                this.dictionary.putIfAbsent(temp[0],temp[1]);
+            }
+        } catch (IOException e) {
+            //jezeli wyrzuci wyjatek to zmieni status na false
+            status = false;
+            throw new RuntimeException(e);
+        }
+        //jezeli przejdzie poprawnie to poprostu zostanie true
+        return status;
     }
 }
 
