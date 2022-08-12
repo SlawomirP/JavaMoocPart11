@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80e657d5-b777-4153-bc40-7b1372b582d5" name="Changes" comment="---">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ex12_06/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ex12_07/Die.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ex12_07/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +41,7 @@
     &quot;last_opened_file_path&quot;: &quot;G:/Mój dysk/JavaMooc2/JavaMoocPart11&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Program">
+  <component name="RunManager" selected="Application.ex12_07.Program">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ex12_02.Main" />
       <module name="JavaMoocPart11" />
@@ -60,19 +61,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ex12_01.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ex11_13.MainTesting" />
-      <module name="JavaMoocPart11" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ex11_13.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,13 +94,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ex12_07.Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ex12_07.Program" />
+      <module name="JavaMoocPart11" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ex12_07.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ex12_07.Program" />
         <item itemvalue="Application.Program" />
         <item itemvalue="Application.ex12_03.Program" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainForTests" />
-        <item itemvalue="Application.MainTesting" />
       </list>
     </recent_temporary>
   </component>
@@ -356,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660249518797</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="---">
+      <created>1660315866002</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1660315866002</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
