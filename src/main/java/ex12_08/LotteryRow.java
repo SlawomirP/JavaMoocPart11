@@ -34,12 +34,13 @@ public class LotteryRow {
 
 
     public boolean containsNumber(int number) {
+        boolean status = false;
         for (Integer num : this.numbers) {
             if (num == number) {
-                return true;
+                status = true;
             }
         }
-        return false;
+        return status;
     }
 }
 
