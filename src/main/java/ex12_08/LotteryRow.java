@@ -20,7 +20,8 @@ public class LotteryRow {
 
     public void randomizeNumbers() {
         this.numbers = new ArrayList<>();
-        while (this.numbers.size() == 7) {
+        while (this.numbers.size() != 7) {
+
             int drawNumber = r.nextInt(1, 41);
             if (!this.numbers.contains(drawNumber)) {
                 this.numbers.add(drawNumber);
