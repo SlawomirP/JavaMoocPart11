@@ -11,7 +11,6 @@ public class LotteryRow {
     private Random r = new Random();
 
     public LotteryRow() {
-        // Draw the numbers when the LotteryRow is created
         this.randomizeNumbers();
     }
 
@@ -20,7 +19,6 @@ public class LotteryRow {
     }
 
     public void randomizeNumbers() {
-        // Initialize the list for numbers
         this.numbers = new ArrayList<>();
         while (this.numbers.size() == 7) {
             int drawNumber = r.nextInt(1, 41);
@@ -29,18 +27,16 @@ public class LotteryRow {
             }
         }
     }
-    // Implement the random number generation here
-    // the method containsNumber is probably useful
-
 
     public boolean containsNumber(int number) {
-        boolean status = false;
-        for (Integer num : this.numbers) {
-            if (num == number) {
-                status = true;
-            }
-        }
-        return status;
+        return this.numbers.contains(number);
+//        boolean status = false;
+//        for (Integer num : this.numbers) {
+//            if (num == number) {
+//                status = true;
+//            }
+//        }
+//        return status;
     }
 }
 
