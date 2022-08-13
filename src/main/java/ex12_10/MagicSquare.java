@@ -2,10 +2,11 @@ package ex12_10;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
 //SPRAWDZENIE CZY KWADRAT JEST MAGIC SQUARE A NASTEPNIE
 //NAPISANIE ALGORYTMU KTORY TWORZY TAKI SQUARE
 public class MagicSquare {
-//UTWORZENIE POLA TABLICY DWUWYMIAROWEJ
+    //UTWORZENIE POLA TABLICY DWUWYMIAROWEJ
     private int[][] square;
 
     // ready constructor
@@ -22,18 +23,27 @@ public class MagicSquare {
     // LISTY
     public ArrayList<Integer> sumsOfRows() {
         ArrayList<Integer> listSums = new ArrayList<>();
-        for(int row = 0; row < this.square.length; row++){
+        for (int row = 0; row < this.square.length; row++) {
             int sumInRow = 0;
-            for(int column = 0; column < this.square[row].length; column++){
-                sumInRow =+ this.square[row][column];
+            for (int column = 0; column < this.square[row].length; column++) {
+                sumInRow += this.square[row][column];
             }
             listSums.add(sumInRow);
         }
         return listSums;
     }
 
+    //METODA KTORA ZWROLI SUME LICZB W KAZDEJ KOLUMNIE W POSTACI LISTY
     public ArrayList<Integer> sumsOfColumns() {
-        return new ArrayList<>();
+        ArrayList<Integer> listSums = new ArrayList<>();
+        int sumInColumn = 0;
+        for (int column = 0; column < this.square.length; column++) {
+            for (int row = 0; row < this.square[column].length; row++) {
+                sumInColumn += this.square[row][column];
+            }
+            listSums.add(sumInColumn);
+        }
+        return listSums;
     }
 
     public ArrayList<Integer> sumsOfDiagonals() {
@@ -90,7 +100,7 @@ public class MagicSquare {
 
     public int readValue(int x, int y) {
         if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
-            return - 1;
+            return -1;
         }
 
         return this.square[y][x];
