@@ -54,7 +54,7 @@ public class MagicSquare {
         }
         listSums.add(sumDiagFirst);
         int column = 0;
-        for(int row = this.square.length-1; row < this.square.length;row--){
+        for(int row = this.square.length-1; row >=0 ;row--){
             sumDiagSecond += this.square[row][column];
             column++;
         }
@@ -76,7 +76,6 @@ public class MagicSquare {
         }
         return numbers;
     }
-
     public boolean allNumbersDifferent() {
         ArrayList<Integer> numbers = giveAllNumbers();
 
@@ -98,13 +97,11 @@ public class MagicSquare {
         if (sums.size() < 3) {
             return false;
         }
-
         for (int i = 1; i < sums.size(); i++) {
             if (sums.get(i - 1) != sums.get(i)) {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -112,7 +109,6 @@ public class MagicSquare {
         if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
             return -1;
         }
-
         return this.square[y][x];
     }
 
@@ -139,10 +135,8 @@ public class MagicSquare {
             for (int col = 0; col < square[row].length; col++) {
                 result.append(square[row][col]).append("\t");
             }
-
             result.append("\n");
         }
-
         return result.toString();
     }
 }
