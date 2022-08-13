@@ -15,7 +15,6 @@ public class MagicSquare {
         if (size < 2) {
             size = 2;
         }
-
         this.square = new int[size][size];
     }
 
@@ -45,9 +44,22 @@ public class MagicSquare {
         }
         return listSums;
     }
-
+//ZWROCI SUME LICZB PO PRZEKATNYCH KWADRATU I ZWROCI W LISCIE
     public ArrayList<Integer> sumsOfDiagonals() {
-        return new ArrayList<>();
+        ArrayList<Integer> listSums = new ArrayList<>();
+        int sumDiagFirst = 0;
+        int sumDiagSecond = 0;
+        for(int rowCol = 0; rowCol < this.square.length; rowCol++){
+            sumDiagFirst += this.square[rowCol][rowCol];
+        }
+        listSums.add(sumDiagFirst);
+        int column = 0;
+        for(int row = this.square.length-1; row < this.square.length;row--){
+            sumDiagSecond += this.square[row][column];
+            column++;
+        }
+        listSums.add(sumDiagSecond);
+        return listSums;
     }
 
     // ready-made helper methods -- don't touch these
@@ -62,7 +74,6 @@ public class MagicSquare {
                 numbers.add(square[row][col]);
             }
         }
-
         return numbers;
     }
 
@@ -75,7 +86,6 @@ public class MagicSquare {
                 return false;
             }
         }
-
         return true;
     }
 
